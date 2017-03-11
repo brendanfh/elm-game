@@ -1,6 +1,7 @@
 module Src.Action exposing (Action(..))
 
-type Action = 
-      NoOp
+
+type Action
+    = NoOp
     | Test
     | Tick Float

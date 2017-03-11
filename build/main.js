@@ -15887,8 +15887,8 @@ var _user$project$Src_Update$update = F2(
 		}
 	});
 
-var _user$project$Src_View$fragmentShader = {'src': '\n        precision mediump float;\n    \n        uniform vec3 color;\n        \n        void main() {\n            gl_FragColor = vec4(color, 1.0);\n        }\n    '};
-var _user$project$Src_View$vertexShader = {'src': '\n        precision mediump float;\n\n        attribute vec3 position;\n        \n        uniform mat4 perspective;\n        uniform mat4 object;\n        \n        void main() {\n            gl_Position = perspective * object * vec4(position, 1.0);\n        }\n    '};
+var _user$project$Src_View$fragmentShader = {'src': '\n        precision mediump float;\n\n        uniform vec3 color;\n\n        void main() {\n            gl_FragColor = vec4(color, 1.0);\n        }\n    '};
+var _user$project$Src_View$vertexShader = {'src': '\n        precision mediump float;\n\n        attribute vec3 position;\n\n        uniform mat4 perspective;\n        uniform mat4 object;\n\n        void main() {\n            gl_Position = perspective * object * vec4(position, 1.0);\n        }\n    '};
 var _user$project$Src_View$perspective = A6(_elm_community$linear_algebra$Math_Matrix4$makeOrtho, 0, 800, 600, 0, -1, 1);
 var _user$project$Src_View_ops = _user$project$Src_View_ops || {};
 _user$project$Src_View_ops['=>'] = F2(
@@ -16003,7 +16003,7 @@ var _user$project$Main$main = _elm_lang$html$Html$program(
 var Elm = {};
 Elm['Main'] = Elm['Main'] || {};
 if (typeof _user$project$Main$main !== 'undefined') {
-    _user$project$Main$main(Elm['Main'], 'Main', {"types":{"unions":{"Src.Action.Action":{"args":[],"tags":{"Tick":["Float"],"Test":[],"NoOp":[]}}},"aliases":{},"message":"Src.Action.Action"},"versions":{"elm":"0.18.0"}});
+    _user$project$Main$main(Elm['Main'], 'Main', {"types":{"message":"Src.Action.Action","aliases":{},"unions":{"Src.Action.Action":{"tags":{"NoOp":[],"Tick":["Float"],"Test":[]},"args":[]}}},"versions":{"elm":"0.18.0"}});
 }
 
 if (typeof define === "function" && define['amd'])
