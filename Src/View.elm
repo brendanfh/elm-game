@@ -6,6 +6,7 @@ import Html as H exposing (..)
 import Html.Attributes exposing (width, height, style)
 import Math.Matrix4 as Mat4 exposing (Mat4)
 import Math.Vector3 as Vec3 exposing (vec3, Vec3)
+import Math.Vector2 as Vec2 exposing (vec2, Vec2)
 import WebGL exposing (Mesh, Shader, Entity)
 
 
@@ -25,7 +26,10 @@ view mdl =
         ]
         [ renderQuad (vec3 1 1 1)
             (Mat4.identity
-                |> Mat4.translate3 250 250 0
+                |> Mat4.translate3
+                    (Vec2.getX mdl.player.position)
+                    (Vec2.getY mdl.player.position)
+                    0
                 |> Mat4.scale3 100 100 1
             )
         ]

@@ -1,7 +1,9 @@
 module Src.Action exposing (Action(..))
 
+import Keyboard exposing (KeyCode)
+
 
 type Action
     = NoOp
-    | Test
+    | KeyChange Bool KeyCode
     | Tick Float
