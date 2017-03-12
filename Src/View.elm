@@ -17,12 +17,21 @@ import WebGL exposing (Mesh, Shader, Entity)
 
 view : Model -> Html Action
 view mdl =
+    H.div [] [ viewGL mdl ]
+
+
+viewGL : Model -> Html Action
+viewGL mdl =
     WebGL.toHtmlWith
         [ WebGL.clearColor 0 0 0 1
         ]
         [ width 800
         , height 600
-        , style [ "display" => "block" ]
+        , style
+            [ "display" => "block"
+            , "width" => "100vw"
+            , "height" => "100vh"
+            ]
         ]
         [ renderQuad (vec3 1 1 1)
             (Mat4.identity
@@ -30,7 +39,10 @@ view mdl =
                     (Vec2.getX mdl.player.position)
                     (Vec2.getY mdl.player.position)
                     0
-                |> Mat4.scale3 100 100 1
+                |> Mat4.scale3
+                    (Vec2.getX mdl.player.size)
+                    (Vec2.getY mdl.player.size)
+                    1
             )
         ]
 

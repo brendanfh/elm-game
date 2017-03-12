@@ -16378,7 +16378,7 @@ var _user$project$Src_View$renderQuad = F2(
 			_user$project$Src_View$quadMesh,
 			{perspective: _user$project$Src_View$perspective, object: objMat, color: color});
 	});
-var _user$project$Src_View$view = function (mdl) {
+var _user$project$Src_View$viewGL = function (mdl) {
 	return A3(
 		_elm_community$webgl$WebGL$toHtmlWith,
 		{
@@ -16398,7 +16398,15 @@ var _user$project$Src_View$view = function (mdl) {
 						{
 							ctor: '::',
 							_0: A2(_user$project$Src_View_ops['=>'], 'display', 'block'),
-							_1: {ctor: '[]'}
+							_1: {
+								ctor: '::',
+								_0: A2(_user$project$Src_View_ops['=>'], 'width', '100vw'),
+								_1: {
+									ctor: '::',
+									_0: A2(_user$project$Src_View_ops['=>'], 'height', '100vh'),
+									_1: {ctor: '[]'}
+								}
+							}
 						}),
 					_1: {ctor: '[]'}
 				}
@@ -16411,8 +16419,8 @@ var _user$project$Src_View$view = function (mdl) {
 				A3(_elm_community$linear_algebra$Math_Vector3$vec3, 1, 1, 1),
 				A4(
 					_elm_community$linear_algebra$Math_Matrix4$scale3,
-					100,
-					100,
+					_elm_community$linear_algebra$Math_Vector2$getX(mdl.player.size),
+					_elm_community$linear_algebra$Math_Vector2$getY(mdl.player.size),
 					1,
 					A4(
 						_elm_community$linear_algebra$Math_Matrix4$translate3,
@@ -16420,6 +16428,16 @@ var _user$project$Src_View$view = function (mdl) {
 						_elm_community$linear_algebra$Math_Vector2$getY(mdl.player.position),
 						0,
 						_elm_community$linear_algebra$Math_Matrix4$identity))),
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$Src_View$view = function (mdl) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _user$project$Src_View$viewGL(mdl),
 			_1: {ctor: '[]'}
 		});
 };
